@@ -115,7 +115,7 @@ public class AccountList implements EventHandler<ActionEvent>{
 		//เชื่อมข้อมูลจาก Database ตรงนี้
 		
 		for (int i = 0;i < user.getAccountList().size(); i++) {	
-			Account account = new Account(user.getAccountList().get(i).getName(), "", String.valueOf(user.getAccountList().get(i).getAccountNumber()), user.getAccountList().get(i).getBalance(), "1234", i);
+			Account account = new Account(user.getAccountList().get(i).getName(), "", String.valueOf(user.getAccountList().get(i).getAccountNumber()), user.getAccountList().get(i).getBalance(), user.getAccountList().get(i).getPassword(), i);
 			if (CompleteHeader.getUser1().getAccountList().size() == Account.getAccountList().size())
 				accountList.add(account);	
 		}

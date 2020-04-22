@@ -75,18 +75,16 @@ public class PhoneInfo {
         this.packAgeS = packAgeS;
     }
 
-    private final double balance;
+    
 
 
-    public PhoneInfo(String phoneNumber, String priceS, String dueDate, String gb, String min, double balance) throws Exception {
+    public PhoneInfo(String phoneNumber, String priceS, String dueDate, String gb, String min) throws Exception {
         this.phoneNumberS = phoneNumber;
         this.priceS = priceS;
         this.dueDateS = dueDate;
         this.gbS = gb;
         this.minS = min;
         this.packAgeS = gbS + " GB" + " (The internet won't run out) " + minS + " minutes" + " (Free calls to all network)";
-        this.balance = balance;
-
         start();
     }
 
@@ -124,7 +122,7 @@ public class PhoneInfo {
 
         paybillBtn.setOnAction(e -> {
             try {
-                PayphoneBill.display(phoneNumberS, balance, prices);
+                PayphoneBill.display(phoneNumberS, prices);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(PhoneInfo.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -10,6 +10,7 @@ import citizenapp.Log;
 import citizenapp.Module.CompleteHeader;
 import citizenapp.Module.LoginForm;
 import citizenapp.Payphone.Account.WhichAccount;
+import citizenapp.PhoneInfo;
 import database.UserData;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +28,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.util.Pair;
@@ -36,8 +39,8 @@ import javafx.util.Pair;
  * @author arthris
  */
 public class SuccessPayphone {
-
 	
+	private static final String css = SuccessPayphone.class.getResource("../style/darkbutton.css").toExternalForm();
 	public static void display(int number, double cost, String otherPhoneNum) throws FileNotFoundException, Exception {
 		AnchorPane mainPane = new AnchorPane();
 		UserData sender = CompleteHeader.getUser1();
@@ -68,7 +71,33 @@ public class SuccessPayphone {
 
 		//VBox
 		VBox vbox = new VBox(20);
-		stage.setOnCloseRequest(e -> stage.close());
+		stage.setOnCloseRequest(e -> {
+			sender.getAccountList().get(number).setBalance(sender.getAccountList().get(number).getBalance() - cost);
+			if (WhichAccount.isIsForOther())
+			{
+				receiver.getPhone().setDate(date1);
+				receiver.getPhone().setBillingDate(dateOne);
+			}
+				
+			else  {
+				sender.getPhone().setDate(date1);
+				sender.getPhone().setBillingDate(dateOne);
+			}
+				
+			sender.WriteData(CompleteHeader.getDATAPATH() + sender.getId());
+			receiver.WriteData(CompleteHeader.getDATAPATH() + receiver.getId());
+			PhoneInfo p2;
+			try {
+				p2 = new PhoneInfo(CompleteHeader.getPhoneNumber(), CompleteHeader.getUser1().getPhone().getPrice(), CompleteHeader.getUser1().getPhone().getBillingDate() , CompleteHeader.getUser1().getPhone().getInternet(), CompleteHeader.getUser1().getPhone().getCallingTime());
+				p2.start();
+			} catch (Exception ex) {
+				Logger.getLogger(SuccessPayphone.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			
+			CompleteHeader.getStage().setScene(PhoneInfo.getScene());
+			WhichAccount.close();
+			stage.close();
+		});
 
 		//Correct Image
 		Image correctPic = new Image(new FileInputStream("src/citizenapp/img/correct.png"));
@@ -79,10 +108,28 @@ public class SuccessPayphone {
 		Button finishBtn = new Button("Finish");
 		finishBtn.setOnAction(e -> {
 			sender.getAccountList().get(number).setBalance(sender.getAccountList().get(number).getBalance() - cost);
-			receiver.getPhone().setBillingDate(dateOne);
+			if (WhichAccount.isIsForOther())
+			{
+				receiver.getPhone().setDate(date1);
+				receiver.getPhone().setBillingDate(dateOne);
+			}
+				
+			else  {
+				sender.getPhone().setDate(date1);
+				sender.getPhone().setBillingDate(dateOne);
+			}
+				
 			sender.WriteData(CompleteHeader.getDATAPATH() + sender.getId());
 			receiver.WriteData(CompleteHeader.getDATAPATH() + receiver.getId());
-			e.consume();
+			
+			try {
+				PhoneInfo p2 = new PhoneInfo(CompleteHeader.getPhoneNumber(), CompleteHeader.getUser1().getPhone().getPrice(), CompleteHeader.getUser1().getPhone().getBillingDate() , CompleteHeader.getUser1().getPhone().getInternet(), CompleteHeader.getUser1().getPhone().getCallingTime());
+				p2.start();
+			} catch (Exception ex) {
+				Logger.getLogger(SuccessPayphone.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			
+			CompleteHeader.getStage().setScene(PhoneInfo.getScene());
 			WhichAccount.close();
 			stage.close();
 		});
@@ -98,9 +145,9 @@ public class SuccessPayphone {
 	
 		vbox.setLayoutX(60);
 		vbox.setLayoutY(25);
-		
+		vbox.getStylesheets().add(css);
 		mainPane.getChildren().addAll(mainBg, vbox);
-		Scene scene = new Scene(vbox, 400, 300);
+		Scene scene = new Scene(mainPane, 400, 300);
 		stage.setScene(scene);
 		stage.setTitle("Successful Pay Phone Bills");
 		stage.show();

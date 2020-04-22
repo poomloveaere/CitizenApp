@@ -137,7 +137,7 @@ public class SuccessChangePackage {
 	}
 	
 	public static void closeProgram() throws Exception {
-		PhoneInfo p2 = new PhoneInfo(CompleteHeader.getPhoneNumber(), price1, CompleteHeader.getUser1().getPhone().getBillingDate() , gb1, minute1, CompleteHeader.getBalance());
+		PhoneInfo p2 = new PhoneInfo(CompleteHeader.getPhoneNumber(), CompleteHeader.getUser1().getPhone().getPrice(), CompleteHeader.getUser1().getPhone().getBillingDate() , CompleteHeader.getUser1().getPhone().getInternet(), CompleteHeader.getUser1().getPhone().getCallingTime());
 		p2.start();
 		CompleteHeader.getStage().setScene(PhoneInfo.getScene());
 		stage.close();

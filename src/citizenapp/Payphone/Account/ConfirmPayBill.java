@@ -111,7 +111,8 @@ public class ConfirmPayBill {
 											PayAlready.display();
 			
 										} else {
-												SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
+											
+											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 								
 										}
 									}
@@ -135,31 +136,33 @@ public class ConfirmPayBill {
 								}
 							}
 							else {
-								System.out.println("Check error : " + otherUser.getPhone().getDate().getYear());
-								if (otherUser.getPhone().getDate().getYear() ==  dateNow.getYear()) { // Same year
+								UserData own = CompleteHeader.getUser1();
+								if (own.getPhone().getDate().getYear() ==  dateNow.getYear()) { // Same year
 									
-									if (otherUser.getPhone().getDate().getMonth() == dateNow.getMonth()) { //Same Month
-										if (otherUser.getPhone().getDate().getDate() - dateNow.getDate() >  7) { 
+									if (own.getPhone().getDate().getMonth() == dateNow.getMonth()) { //Same Month
+										if (own.getPhone().getDate().getDate() - dateNow.getDate() >  7) { 
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
-										SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
+											System.out.println("Hello1");
+											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 									}
 									} else /*Not Same Month */ {
-										if ((otherUser.getPhone().getDate().getDate() + (otherUser.getPhone().getDate().getMonth() * 30)) - (dateNow.getDate() + (dateNow.getMonth() * 30)) > 7)					{
+										if ((own.getPhone().getDate().getDate() + (own.getPhone().getDate().getMonth() * 30)) - (dateNow.getDate() + (dateNow.getMonth() * 30)) > 7)					{
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
-											
+											System.out.println("Hello2");
 											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 										}
 									}
 								} else {
-									if (dateNow.getMonth() == 12 && otherUser.getPhone().getDate().getMonth() == 1) {
-										if ((otherUser.getPhone().getDate().getDate() + 365) - (dateNow.getDate() + 334) > 7) {
+									if (dateNow.getMonth() == 12 && own.getPhone().getDate().getMonth() == 1) {
+										if ((own.getPhone().getDate().getDate() + 365) - (dateNow.getDate() + 334) > 7) {
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
+											System.out.println("Hello3");
 											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 										}
 									} else {

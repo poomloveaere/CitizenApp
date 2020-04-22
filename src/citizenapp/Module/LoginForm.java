@@ -107,7 +107,7 @@ public class LoginForm {
 		wrong.setFont(Font.font("Arial", 14));
 		
 		
-		inputId.setText("1100254668954");
+		inputId.setText("1101700292924");
 		inputPw.setText("123");
 		
 		userLoginBox1.getChildren().addAll(idImageView, inputId);
@@ -176,15 +176,7 @@ public class LoginForm {
 		
 		//Mainpane
 		
-		
-			
-			
-			
-			
-		
-		
-		
-		
+	
 	}
 	
 	public static UserkeyList getUserkey() {

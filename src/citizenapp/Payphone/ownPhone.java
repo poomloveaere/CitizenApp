@@ -38,7 +38,7 @@ public class ownPhone {
 	private final static String css = ownPhone.class.getResource("../style/darkbutton.css").toExternalForm();
 	private final static String TEXT = "text-label";
 	
-	public static void display(String phoneNumber, double balance, double cost) throws FileNotFoundException  {
+	public static void display(String phoneNumber, double cost) throws FileNotFoundException  {
 	
 		Stage stage = new Stage();
 		stage.setResizable(false);

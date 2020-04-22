@@ -128,12 +128,8 @@ public static void display(int number, String firstName, String lastName, String
 
 	public static void closeProgram() throws Exception {
 		CompleteHeader.getUser1().getAccountList().get(number1).setBalance(totalMoney);
-//		System.out.println(LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number1).getBalance());
 		LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number1).setBalance(totalMoney);
 		CompleteHeader.getUser1().WriteData(CompleteHeader.getDATAPATH() + CompleteHeader.getUser1().getId());
-//		System.out.println(LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number1).getBalance());
-//		
-//		System.out.println("Number : " + number1);
 		AccountPage a2 = new AccountPage(number1, firstName1, lastName1, accNum1, LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number1).getBalance()); 
 		a2.start(AccountPage.getStage());
 		window.close();

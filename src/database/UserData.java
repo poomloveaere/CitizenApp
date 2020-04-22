@@ -241,4 +241,11 @@ public class UserData implements Serializable {
     public void setGroupLaed(String groupLaed) {
         this.groupLaed = groupLaed;
     }
+
+	@Override
+	public String toString() {
+		return "UserData{" + "locale=" + locale + ", dateFormat=" + dateFormat + ", id=" + id + ", name=" + name + ", surname=" + surname + ", gender=" + gender + ", nationality=" + nationality + ", religion=" + religion + ", dateOfBirth=" + dateOfBirth + ", address=" + address + ", picturePath=" + picturePath + ", groupLaed=" + groupLaed + ", \nphone=" + phone + ", accountList=" + accountList + ", adminLogList=" + adminLogList + ", logy=" + logy + ", dateExpire=" + dateExpire + ", dateOfIssue=" + dateOfIssue + '}';
+	}
+    
+    
 }

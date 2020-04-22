@@ -5,7 +5,6 @@
  */
 package citizenapp;
 
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import database.UserkeyList;
@@ -18,7 +17,7 @@ public class Main extends Application {
 	
 	private static final String PATH = "src/database/keylist"; 
 	public static void main(String[] args) throws Exception {
-		if (true) {
+		if (!true) {
                     UserkeyList ukl = new UserkeyList(PATH);			
                     ukl.Login("admin", "admin");
                     ukl.WriteKeyList(PATH);

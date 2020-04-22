@@ -34,7 +34,7 @@ public class Account {
 	private final String fullName;
 	private String firstName;
 	private String lastName;
-	private double balance = 300000; // Connect from database
+	private double balance;
 	private String accNum;
 	private static ArrayList<Account> accountList = new ArrayList<>();
 	private String password;

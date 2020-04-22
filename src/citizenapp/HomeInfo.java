@@ -108,6 +108,7 @@ public class HomeInfo implements EventHandler<ActionEvent>{
 		HBox hbox1 = new HBox(10);
 		hbox1.getChildren().addAll(idNumber.setInfo1(), idNumber.setInfo2());
 		HBox hbox2 = new HBox(10);
+		name.getLabel().setWrapText(false);
 		hbox2.getChildren().addAll(name.setInfo1(), name.setInfo2());
 		HBox hbox3 = new HBox(10);
 		hbox3.getChildren().addAll(gender.setInfo1(), gender.setInfo2());

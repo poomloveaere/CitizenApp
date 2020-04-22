@@ -100,8 +100,8 @@ public class History {
 			String timeString = CompleteHeader.getUser1().getLogy().get(i).getKey();
 			String detailString = CompleteHeader.getUser1().getLogy().get(i).getValue();
 			Log.add(new Log(timeString, detailString));
-			System.out.println(timeString);
-			System.out.println(detailString);
+//			System.out.println(timeString);
+//			System.out.println(detailString);
 			
 		}
 		for (int i = 0; i < Log.getLogList().size(); i++) {

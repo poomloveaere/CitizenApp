@@ -386,7 +386,8 @@ public class CompleteHeader {
         AccountList a1 = new AccountList(user1, firstName, surName, phoneNumber);
         accountListScene = a1.getScene();
         accountList = a1;
-        PhoneInfo p1 = new PhoneInfo(phoneNumber, priceS, dueDatePackage, gbS, minS, balance);
+	
+        PhoneInfo p1 = new PhoneInfo(phoneNumber, priceS, dueDatePackage, gbS, minS);
         phoneObj = p1;
         phoneInfoScene = p1.getScene();
         History.start();
@@ -470,7 +471,7 @@ public class CompleteHeader {
         homeIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
 	    
-//			System.out.println(user1.toString());
+
             homeIcon.getText().setEffect(activeIconEffect);
             homeIcon.getImage().setEffect(activeIconEffect);
             stage1.setScene(HomeInfoScene);
@@ -554,7 +555,8 @@ public class CompleteHeader {
 
         historyIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
-//			System.out.println(user1.toString());
+	    System.out.println(user1.toString());
+	    System.out.println("User1 in CompleteHeader : " + user1.getPhone().getBillingDate());
             historyIcon.getText().setEffect(activeIconEffect);
             historyIcon.getImage().setEffect(activeIconEffect);
             try {

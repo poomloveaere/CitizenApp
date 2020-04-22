@@ -41,7 +41,7 @@ public class PayphoneBill {
 	
 	
 	private static final String button_css = PayphoneBill.class.getResource("../style/PayPhoneBill.css").toExternalForm();
-	public static void display(String phoneNumber, double balance, double cost) throws FileNotFoundException {
+	public static void display(String phoneNumber, double cost) throws FileNotFoundException {
 		AnchorPane mainPane = new AnchorPane();
 		Stage stage = new Stage();
 		stage.setResizable(false);
@@ -73,7 +73,7 @@ public class PayphoneBill {
 			stage.close();
 			AccountCheck.setPayphone(false);
 			try {
-				ownPhone.display(CompleteHeader.getUser1().getPhone().getPhoneNumber(), balance, cost);
+				ownPhone.display(CompleteHeader.getUser1().getPhone().getPhoneNumber(), cost);
 			} catch (FileNotFoundException ex) {
 				Logger.getLogger(PayphoneBill.class.getName()).log(Level.SEVERE, null, ex);
 			}
