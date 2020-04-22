@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.Payphone;
 
 
@@ -23,10 +19,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
 public class InsuffPayphone {
 	
 	private static final String css = PayphoneBill.class.getResource("../style/darkbutton.css").toExternalForm();
@@ -41,7 +33,7 @@ public class InsuffPayphone {
 		
 		VBox vbox = new VBox(20);
 
-////		//Correct Image
+		//Correct Image
 		Image incorrectPic = new Image(new FileInputStream("src/citizenapp/img/incorrect.png"));
 		ImageView incorrectImg = new ImageView();
 		incorrectImg.setImage(incorrectPic);

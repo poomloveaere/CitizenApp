@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.ChangePacket;
 
 import citizenapp.Log;
@@ -34,10 +30,6 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 
-/**
- *
- * @author arthris
- */
 public class SuccessChangePackage {
 	
 	private static Stage stage = new Stage();
@@ -66,13 +58,11 @@ public class SuccessChangePackage {
 		Date date1= new Date();
 		date1.setMonth(date1.getMonth() + 1);
 		String dateOne = dateformatOne.format(date1);
-//		System.out.println(dateLog);
-//		System.out.println(dateOne);
+
 		//Cost format
 		String costFormat = "You have changed package to Package : " + packAge + " (Price : " + price + " baht " + gb + " GB " + minute + " minutes)";
 
 		//Log Message
-//		CompleteHeader.getUser1().getLogList().add(new Log(dateLog, costFormat)); Error
 		CompleteHeader.getUser1().getLogy().add(new Pair<>(dateLog, costFormat));
 
 		//VBox

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.WithDraw;
 
 import citizenapp.Module.CompleteHeader;
@@ -28,15 +24,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- *
- * @author arthris
- */
+
 public class VerifyWithDraw {
 
-	private static int COUNT = 10;
+	private final static int COUNT = 60;
 	private static int seconds = COUNT;
-	private static Label countdownLabel = new Label();
+	private final static Label countdownLabel = new Label();
 	private static boolean isCountdown;
 	private static String firstName1;
 	private static String accNum1;
@@ -86,7 +79,7 @@ public class VerifyWithDraw {
 		}
 		otp.setText(otpS);
 		
-		Label l1 = new Label("This code expires in 1 minutes");
+		Label l1 = new Label("This code expires in 1 minute");
 		l1.setFont(Font.font("Segoe UI", 16));
 		
 		
@@ -103,7 +96,6 @@ public class VerifyWithDraw {
 					isCountdown = false;
 					stage1.close();
 					SuccessWithDraw.display(number, firstName, lastName, accNum, totalMoney, withdraw);
-					CompleteHeader.setMoney(leftMoney);
 					
 				} 
 				

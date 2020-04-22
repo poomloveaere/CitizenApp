@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.Payphone;
 
 import citizenapp.AccountCheck;
@@ -27,10 +23,6 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
 
 public class PayphoneBill {
 	
@@ -53,7 +45,6 @@ public class PayphoneBill {
 	
 		stage.initModality(Modality.APPLICATION_MODAL);
 		//Background
-//		Background background = new Background(new BackgroundFill(Color.rgb(200,200,200,0.5), CornerRadii.EMPTY, Insets.EMPTY));
 		VBox vbox = new VBox(20);
 		HBox hbox = new HBox(10);
 		
@@ -95,7 +86,6 @@ public class PayphoneBill {
 		hbox.getChildren().addAll(ownPhoneBtn, otherPhoneBtn);
 		hbox.setPadding(new Insets(0,0,0,0));
 
-		
 		Image img1 = new Image(new FileInputStream(CompleteHeader.getPATH_TO_BG3()));
 		ImageView mainBg = new ImageView();
 		mainBg.setImage(img1);
@@ -103,7 +93,6 @@ public class PayphoneBill {
 		mainBg.setFitHeight(300);
 		vbox.getChildren().addAll(t1,hbox);
 		vbox.setAlignment(Pos.CENTER);
-//		vbox.setBackground(background);
 		vbox.setLayoutX(42);
 		vbox.setLayoutY(30);
 

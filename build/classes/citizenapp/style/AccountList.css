@@ -12,10 +12,7 @@
 	-fx-border-width: 0px 0px 1px 0px;	
 	-fx-padding: 5px 0px 5px 0px;
         -fx-font-size: 30px;
-        
 }
 
 
-/*.box:hover .text{
-	-fx-effect: dropshadow(three-pass-box, white, 5, 0, 0 ,0);
-}*/
+

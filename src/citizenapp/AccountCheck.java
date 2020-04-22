@@ -31,18 +31,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author arthris
- * 
- * 
- */
 
 public class AccountCheck  implements EventHandler<ActionEvent>{
 	
@@ -53,13 +41,7 @@ public class AccountCheck  implements EventHandler<ActionEvent>{
 	private static boolean isPayPhone;
 	private static boolean isOtherPhone;
 
-	public static boolean isIsPayPhone() {
-		return isPayPhone;
-	}
-
-	public static boolean isIsOtherPhone() {
-		return isOtherPhone;
-	}
+	
 
 	public AccountCheck(String firstName, String lastName, String accNum) {
 		
@@ -184,6 +166,13 @@ public class AccountCheck  implements EventHandler<ActionEvent>{
 	}
 	public static void setOtherPhone(boolean poo) {
 		isOtherPhone = poo;
+	}
+	public static boolean isIsPayPhone() {
+		return isPayPhone;
+	}
+
+	public static boolean isIsOtherPhone() {
+		return isOtherPhone;
 	}
 	
 

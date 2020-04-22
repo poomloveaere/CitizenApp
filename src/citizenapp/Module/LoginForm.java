@@ -7,7 +7,6 @@ import database.UserData;
 import database.UserkeyList;
 import java.io.FileInputStream;
 import javafx.animation.FadeTransition;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,9 +31,6 @@ import javafx.util.Duration;
 public class LoginForm {
 	
 	private static UserkeyList userkey;
-	//css
-//	private final static String css = ;
-//	private final static String SCROLL = "scroll-pane";
 	private final static String css = LoginForm.class.getResource("../style/loginForm.css").toExternalForm();
 	private final static String VBOX = "vbox";
 	private final static String BTN = "button";
@@ -84,9 +80,6 @@ public class LoginForm {
 		inputPw.setPrefWidth(250);
 		inputPw.setPromptText("Password");
 		
-
-		
-		
 		FadeTransition fTransition = new FadeTransition();
 		
 		VBox completeLoginBox = new VBox(20);
@@ -97,7 +90,6 @@ public class LoginForm {
 		fTransition.play();
 		completeLoginBox.getStyleClass().add(VBOX);
 		
-		
 		Button loginBtn = new Button("Sign in");
 		
 		completeLoginBox.setAlignment(Pos.CENTER);
@@ -105,10 +97,6 @@ public class LoginForm {
 		Text wrong = new Text("Sorry, Please try again");
 		wrong.setFill(Color.ORANGE);
 		wrong.setFont(Font.font("Arial", 14));
-		
-		
-		inputId.setText("1101700292924");
-		inputPw.setText("123");
 		
 		userLoginBox1.getChildren().addAll(idImageView, inputId);
 		userLoginBox2.getChildren().addAll(pwImageView, inputPw);
@@ -118,6 +106,9 @@ public class LoginForm {
 		
 		completeLoginBox.setLayoutX(150);
 		completeLoginBox.setLayoutY(130);
+		
+		inputId.setText("1100201563564");
+		inputPw.setText("123");
 		inputPw.setOnKeyPressed((KeyEvent key) -> {
 			if (key.getCode().equals(KeyCode.ENTER))
 			{
@@ -152,13 +143,10 @@ public class LoginForm {
 				FirstPage.close();
 				
 			} catch (Exception ex) {
-//				if (completeLoginBox.getChildren().size() < 4) {
-//					completeLoginBox.getChildren().remove(loginBtn);
-//					completeLoginBox.getChildren().addAll(wrong, loginBtn);
-//				} 
-				ex.printStackTrace();
-				
-				
+				if (completeLoginBox.getChildren().size() < 4) {
+					completeLoginBox.getChildren().remove(loginBtn);
+					completeLoginBox.getChildren().addAll(wrong, loginBtn);
+				} 
 			}
 		});
 		
@@ -172,9 +160,6 @@ public class LoginForm {
 		stage.setScene(scene);
 		stage.setTitle("Citizen Card");
 		stage.show();
-	
-		
-		//Mainpane
 		
 	
 	}

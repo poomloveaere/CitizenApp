@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.WithDraw;
 
-import citizenapp.Account;
-import citizenapp.AccountCheck;
 import citizenapp.AccountPage;
-import citizenapp.Module.RoundButton;
-import citizenapp.Log;
 import citizenapp.Module.CompleteHeader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +14,6 @@ import java.util.logging.Logger;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -34,13 +25,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
-/**
- *
- * @author arthris
- */
+
 public class SuccessWithDraw {
 
-	private static Stage window = new Stage();
+	private final static Stage window = new Stage();
 	private static double totalMoney;
 	
 	private static String firstName1;

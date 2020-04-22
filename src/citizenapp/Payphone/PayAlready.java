@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.Payphone;
 
 import citizenapp.Module.CompleteHeader;
@@ -22,10 +18,6 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
 public class PayAlready {
 	
 	private static boolean me;
@@ -49,7 +41,7 @@ public class PayAlready {
 		
 		VBox vbox = new VBox(20);
 
-//		//Correct Image
+		//Correct Image
 		Image incorrectPic = new Image(new FileInputStream("src/citizenapp/img/incorrect.png"));
 		ImageView incorrectImg = new ImageView();
 		incorrectImg.setImage(incorrectPic);

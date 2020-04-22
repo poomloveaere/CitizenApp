@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp;
-
-
-//import citizenapp.Module.RoundButton;
 
 import citizenapp.Module.CompleteHeader;
 import citizenapp.Transfer.TransferPopUp;
 import citizenapp.WithDraw.WithDrawPopUp;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,30 +30,21 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-/**
- * @author arthris
- */
 public class AccountPage extends Application implements EventHandler<ActionEvent> {
 
     private static Stage window;
 
     private final String fullName;
-    private String firstName = "Paratthakorn";
-    private String lastName = "Sribunyong";
+    private String firstName;
+    private String lastName;
     private final double money;
     private final int number;
-
     private final String accNum;
-
     private final String OREO = "-fx-background-color: #BBBAC0; -fx-background-radius: 1em;";
-
-
-    //UI
     private final Text nameOfAcc = new Text();
     private final Text accNumText = new Text();
     private final Button withDrawBtn = new Button("Withdraw");
     private final Button transferBtn = new Button("Transfer");
-
     private static Account ownAccount;
 
 

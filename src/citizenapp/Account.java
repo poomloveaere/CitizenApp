@@ -28,30 +28,28 @@ import javafx.scene.text.Text;
 
 public class Account {
 	
-	private Text nameText = new Text();
-	private Text accNumText = new Text();
-	private HBox hbox = new HBox();
+	private final Text nameText = new Text();
+	private final Text accNumText = new Text();
+	private final HBox hbox = new HBox();
 	private final String fullName;
-	private String firstName;
-	private String lastName;
+	private final String firstName;
+	private final String lastName;
 	private double balance;
 	private String accNum;
-	private static ArrayList<Account> accountList = new ArrayList<>();
-	private String password;
+	private final static ArrayList<Account> accountList = new ArrayList<>();
+	private final String password;
 	private int number;
 	private Account self = this;
+	private final static ArrayList<HBox> accountBox = new ArrayList<>();
+	private static String webValue = "#fff";
 
-public static ArrayList<HBox> getAccountBox() {
-		return accountBox;
+	public static String getWebValue() {
+		return webValue;
 	}
 
-	public static ArrayList<Account> getAccountList() {
-		return accountList;
+	public static void setWebValue(String webValue) {
+		Account.webValue = webValue;
 	}
-	private final static String BOX_STYLE = "box";
-	private String css = this.getClass().getResource("style/AccountList.css").toExternalForm();
-	private static ArrayList<HBox> accountBox = new ArrayList<>();
-	
 	public Account(String firstName, String lastName, String accNum1, double balance, String password, int number) {
 		this.number = number;
 		this.firstName = firstName;
@@ -76,9 +74,15 @@ public static ArrayList<HBox> getAccountBox() {
 		hbox.setMinWidth(Control.USE_PREF_SIZE);
 		hbox.setMaxWidth(Control.USE_PREF_SIZE);
 		hbox.setPrefWidth(500.0);
-//		System.out.println(CompleteHeader.getUser1().getAccountList().get(getNumber()).getBalance());
-		hbox.getStylesheets().add(css);
-		hbox.getStyleClass().add(BOX_STYLE);
+		hbox.setStyle("-fx-background-color: transparent; -fx-border-color: #bababa;-fx-border-width: 0px 0px 1px 0px;");
+		hbox.setOnMouseEntered(e -> {
+			hbox.setStyle("-fx-background-color: transparent; -fx-border-color: " + webValue + ";-fx-effect: dropshadow(three-pass-box," + webValue + ", 5, 0, 0, 0);-fx-border-width: 0px 0px 1px 0px;-fx-padding: 5px 0px 5px 0px;-fx-font-size: 30px;");
+		});
+		hbox.setOnMouseExited(e -> {
+			hbox.setStyle("-fx-background-color: transparent; -fx-border-color: #bababa;-fx-border-width: 0px 0px 1px 0px;");
+		});
+		
+		
 		hbox.getChildren().addAll(this.nameText, this.accNumText);
 		hbox.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
     			@Override
@@ -86,13 +90,10 @@ public static ArrayList<HBox> getAccountBox() {
         	 		event.consume();
 				    try {
 					    CompleteHeader.getUser1().getAccountList().get(number).addClick();
-					    System.out.println("Account "  + number + ": " + CompleteHeader.getUser1().getAccountList().get(number).getCountClick());
 					    AccountCheck.display(getNumber(), firstName,lastName, accNum, LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number).getBalance());
 				    } catch (FileNotFoundException ex) {
 					    Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
 				    }
-//				System.out.println("Account from database" + getNumber() + ":" + LoginForm.getUserkey().getUserData(CompleteHeader.getUser1().getId()).getAccountList().get(number).getBalance());
-//				System.out.println("Account in CompleteHeader" + getNumber() + ":" + CompleteHeader.getUser1().getAccountList().get(getNumber()).getBalance());
 				AccountCheck.setAccount(self);
      			}
 		});
@@ -100,6 +101,7 @@ public static ArrayList<HBox> getAccountBox() {
 		accountList.add(self);
 		
 	}
+	
 
 	public Text getNameText() {
 		return nameText;
@@ -138,6 +140,12 @@ public static ArrayList<HBox> getAccountBox() {
 	public int getNumber() {
 		return number;
 	}
-	
+	public static ArrayList<HBox> getAccountBox() {
+		return accountBox;
+	}
+
+	public static ArrayList<Account> getAccountList() {
+		return accountList;
+	}
 	
 }

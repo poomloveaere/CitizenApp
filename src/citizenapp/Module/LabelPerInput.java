@@ -3,28 +3,22 @@ package citizenapp.Module;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Control;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
 public class LabelPerInput {
-	private String name;
-	private String info;
-	private Label label = new Label();
-	private HBox hbox1 = new HBox();
-	private HBox hbox2 = new HBox();
+	private final String name;
+	private final String info;
+	private final Label label = new Label();
+	private final HBox hbox1 = new HBox();
+	private final HBox hbox2 = new HBox();
 	public LabelPerInput(String labelName, String info) {
 		this.name = labelName;
 		this.info = info;
-		
-	}
-	public LabelPerInput() {
-		
 	}
 	
 	public HBox setInfo1() {
@@ -55,8 +49,6 @@ public class LabelPerInput {
 		
 		return this.hbox2;
 	}
-	
-	
 	
 	public HBox active() {
 		Text t1 = new Text(name);

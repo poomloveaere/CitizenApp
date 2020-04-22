@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import database.UserkeyList;
 
-/**
- *
- * @author arthris
- */
+
 public class Main extends Application {
 	
 	private static final String PATH = "src/database/keylist"; 

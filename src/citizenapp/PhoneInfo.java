@@ -32,18 +32,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
 
-/**
- * @author arthris
- */
+
+
 public class PhoneInfo {
-
 
     private static final String css = PhoneInfo.class.getResource("style/generalButton.css").toExternalForm();
     private static final String TEXT = "text";
     private static Scene scene;
-
     private String phoneNumberS;
     private String priceS;
     private String dueDateS;
@@ -75,9 +71,6 @@ public class PhoneInfo {
         this.packAgeS = packAgeS;
     }
 
-    
-
-
     public PhoneInfo(String phoneNumber, String priceS, String dueDate, String gb, String min) throws Exception {
         this.phoneNumberS = phoneNumber;
         this.priceS = priceS;
@@ -89,7 +82,6 @@ public class PhoneInfo {
     }
 
     public void start() throws Exception {
-
         AnchorPane mainPane = new AnchorPane();
         HBox nameHBox = new HBox();
         Label fullNameLabel = new Label(CompleteHeader.getFullName());
@@ -138,9 +130,7 @@ public class PhoneInfo {
                 ChangePackage.display();
             } catch (Exception ex) {
             }
-
         });
-
         VBox bigVbox = new VBox(25);
         bigVbox.setLayoutX(110);
         bigVbox.setLayoutY(150);
@@ -200,7 +190,7 @@ public class PhoneInfo {
 
         mainPane.getChildren().addAll(mainBg, secondBg, CompleteHeader.getLogo(), CompleteHeader.getNavbar(), CompleteHeader.getTopRight(), nameHBox, bigVbox);
         mainPane.getStylesheets().add(css);
-//		//Scene
+	//Scene
         Scene scene = new Scene(mainPane, 800, 600);
         this.scene = scene;
     }

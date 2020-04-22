@@ -8,13 +8,13 @@ import citizenapp.History;
 import citizenapp.HomeInfo;
 import citizenapp.Log;
 import citizenapp.PhoneInfo;
+import citizenapp.Setting;
 import database.UserData;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
@@ -29,33 +29,21 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import javafx.util.Pair;
+;
 
 public class CompleteHeader {
 
-    // ไฟล์รููปภาพ
+	//Image
     private static final String PATH_TO_BG1 = "src/citizenapp/img/92801.jpg";
     private static final String PATH_TO_BG2 = "src/citizenapp/img/2250.jpg";
     private static final String PATH_TO_BG3 = "src/citizenapp/img/grayBg.jpg";
-    private static final String DATAPATH = "src/database/";
-
-    public static String getDATAPATH() {
-        return DATAPATH;
-    }
-
     private static String PATH_TO_HUMANPIC = "src/citizenapp/img/ronaldo.jpg";
-
-
+    private static final String DATAPATH = "src/database/";
     private static String iden = "1101700292924";
     private static String firstName = "Paratthakorn";
     private static String priceS = "699";
     private static String dueDatePackage = "3 Apr 2020";
     private static String gbS = "20";
-
-    public static UserData getUser1() {
-        return user1;
-    }
-
     private static String surName = "Sribunyong";
     private static String fullName = firstName + " " + surName;
     private static String gender = "Male"; // Gender
@@ -66,6 +54,17 @@ public class CompleteHeader {
     private static String doi = "12/12/2012"; // Date of Issue
     private static String doe = "12/11/2017"; // Date of Expiry
     private static String bloodGroup = "A";
+    private static String phoneNumber = "0846657615";
+    private static String minS = "150";
+    private static ImageView mainBg = new ImageView();
+    private static ImageView secondBg = new ImageView();
+    
+    public static UserData getUser1() {
+        return user1;
+    }
+    public static String getDATAPATH() {
+        return DATAPATH;
+    }
 
 	public static String getBloodGroup() {
 		return bloodGroup;
@@ -74,7 +73,6 @@ public class CompleteHeader {
 	public static void setBloodGroup(String bloodGroup) {
 		CompleteHeader.bloodGroup = bloodGroup;
 	}
-    private static String phoneNumber = "0846657615";
     
 
     public static String getPATH_TO_HUMANPIC() {
@@ -114,9 +112,6 @@ public class CompleteHeader {
         CompleteHeader.secondBg = secondBg;
     }
 
-    public static void setBalance(double balance) {
-        CompleteHeader.balance = balance;
-    }
 
     public static void setSurName(String surName) {
         CompleteHeader.surName = surName;
@@ -187,10 +182,6 @@ public class CompleteHeader {
         CompleteHeader.PATH_TO_HUMANPIC = PATH_TO_HUMANPIC;
     }
 
-    private static String minS = "150";
-    private static ImageView mainBg = new ImageView();
-    private static ImageView secondBg = new ImageView();
-    private static double balance = 30000.00;
 
 
     public static String getPATH_TO_BG3() {
@@ -262,9 +253,6 @@ public class CompleteHeader {
         return minS;
     }
 
-    public static double getBalance() {
-        return balance;
-    }
 
     public HBox getNavBar() {
         return navBar;
@@ -294,15 +282,6 @@ public class CompleteHeader {
 
     private HBox navBar = new HBox();
 
-    /**
-     * Label fullNameLabeLabel fullNameLabel = new Label();l = new Label();
-     * fullNameLabel.setTextFill(Color.WHITE);
-     * fullNameLabel.setText(fullName);
-     * fullNameLabel.setFont(Font.font("MV Boli", 15));
-     * fullNameLabel.setLayoutX(500);
-     * fullNameLabel.setLayoutY(40);
-     */
-//	private	static Label fullNameLabel = new Label();
     private static Stage stage1 = new Stage();
     private static Scene accountListScene;
     private static Scene HomeInfoScene;
@@ -311,7 +290,7 @@ public class CompleteHeader {
     private static AccountList accountList;
     private static DropShadow hoverIconEffect = new DropShadow();
     private static DropShadow activeIconEffect = new DropShadow();
-
+    private static Color theme = Color.WHITE;
 
     private static UserData user1;
 
@@ -319,58 +298,26 @@ public class CompleteHeader {
     private static boolean isFirstTime = true;
 
     public CompleteHeader(Stage stage, UserData user) throws Exception {
-//		UserkeyList u = new UserkeyList("src/database/keylist");
-
 	user1 = user;
-	System.out.println(user1.toString());
-//		System.out.println(user1.toString());
-//		System.out.println(user1.getId());
-//		System.out.println(user1.getName());
-//		System.out.println(user1.getSurname());
-//		System.out.println(user1.getGender());
-//		System.out.println(user1.getNationality());
-//		System.out.println(user1.getDateOfBirth());
-//		System.out.println(user1.getReligion());
-//		System.out.println(user1.getAddress());
-//		System.out.println(user1.getDateOfIssue());
-//		System.out.println(user1.getDateExpire());
-//		System.out.println(user1.getPhone().getPhoneNumber());
-//		System.out.println(user1.getPhone().getPrice());
-//		System.out.println((user1.getDateFormat().format(user1.getPhone().getBillingDate())));
-//		System.out.println(user1.getPhone().getInternet());
-//		System.out.println(user1.getPhone().getCallingTime());
-//		System.out.println(user1.getBalance());
-
         setIden(user1.getId());
-	
-
         setFirstName(user1.getName());
         setSurName(user1.getSurname());
         setFullName(user1.getName() + " " + user1.getSurname());
         setGender(user1.getGender());
-	    
         setNation(user1.getNationality());
-	
 	setBloodGroup(user1.getGroupLaed());
-	
         setDob(user1.getDateOfBirth());
-	
         setRelig(user1.getReligion());
         setAddr(user1.getAddress());
         setDoi(user1.getDateOfIssue());
-	
         setDoe(user1.getDateExpire());
         setPhoneNumber(user1.getPhone().getPhoneNumber());
         setPriceS(user1.getPhone().getPrice());
-	
         setDueDatePackage(user1.getPhone().getBillingDate());
         setGbS(user1.getPhone().getInternet());
         setMinS(user1.getPhone().getCallingTime());
-	
-  
-	
+
         setPATH_TO_HUMANPIC(user1.getPicturePath());
-	
 	
         //Set up info
         stage1 = stage;
@@ -383,6 +330,7 @@ public class CompleteHeader {
 
         HomeInfo h1 = new HomeInfo(iden, firstName, surName, gender, nation, dob, relig, addr, doi, doe, bloodGroup);
         HomeInfoScene = h1.getScene();
+	Setting.display();
         AccountList a1 = new AccountList(user1, firstName, surName, phoneNumber);
         accountListScene = a1.getScene();
         accountList = a1;
@@ -391,6 +339,7 @@ public class CompleteHeader {
         phoneObj = p1;
         phoneInfoScene = p1.getScene();
         History.start();
+	
         stage1.setScene(HomeInfoScene);
         stage1.setX(440);
         stage1.setY(140);
@@ -399,12 +348,13 @@ public class CompleteHeader {
         hoverIconEffect.setWidth(15);
         hoverIconEffect.setHeight(15);
         hoverIconEffect.setRadius(5.0);
-        hoverIconEffect.setColor(Color.WHITESMOKE);
+	hoverIconEffect.setColor(Setting.getColor());
 
         activeIconEffect.setWidth(15);
         activeIconEffect.setHeight(15);
         activeIconEffect.setRadius(5.0);
-        activeIconEffect.setColor(Color.GREY);
+	activeIconEffect.setColor(Setting.getColor());
+        
     }
 
     public static PhoneInfo getPhoneObj() {
@@ -459,7 +409,6 @@ public class CompleteHeader {
         TextWithIcon homeIcon = new TextWithIcon("Home", "Home.png");
         homeIcon.getHbox().addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent event) -> {
             event.consume();
-
             homeIcon.getText().setEffect(hoverIconEffect);
             homeIcon.getImage().setEffect(hoverIconEffect);
         });
@@ -470,8 +419,8 @@ public class CompleteHeader {
         });
         homeIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
-	    
-
+	    hoverIconEffect.setColor(Setting.getColor());
+	    theme = Setting.getColor();
             homeIcon.getText().setEffect(activeIconEffect);
             homeIcon.getImage().setEffect(activeIconEffect);
             stage1.setScene(HomeInfoScene);
@@ -493,7 +442,8 @@ public class CompleteHeader {
         });
         phoneIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
-//			System.out.println(user1.toString());
+	    hoverIconEffect.setColor(Setting.getColor());
+	    theme = Setting.getColor();
             phoneIcon.getText().setEffect(activeIconEffect);
             phoneIcon.getImage().setEffect(activeIconEffect);
             stage1.setScene(PhoneInfo.getScene());
@@ -515,15 +465,14 @@ public class CompleteHeader {
         });
         bankIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
+	    hoverIconEffect.setColor(Setting.getColor());
+	    theme = Setting.getColor();
             bankIcon.getText().setEffect(activeIconEffect);
             bankIcon.getImage().setEffect(activeIconEffect);
-//			System.out.println(user1.toString());
-//			System.out.println("User account size : " + CompleteHeader.getUser1().getAccountList().size());
-//			System.out.println("Current account size : " + Account.getAccountList().size());
 
             try {
-//				System.out.println(Account.getAccountBox().size());
                 AccountCheck.setPayphone(false);
+		Account.setWebValue(toRGBCode(Setting.getColor()));
                 for (int i = 0; i < Account.getAccountBox().size(); i++) {
                     //Set before goto accountList
                     Account.getAccountList().get(i).getNameText().setFont(Font.font("Neucha", 20));
@@ -534,7 +483,7 @@ public class CompleteHeader {
                 }
             } catch (Exception e) {
             }
-
+	    
             stage1.setScene(accountListScene);
             stage1.setX(stage1.getX());
             stage1.setY(stage1.getY());
@@ -543,7 +492,6 @@ public class CompleteHeader {
         TextWithIcon historyIcon = new TextWithIcon("History", "Bookmark.png");
         historyIcon.getHbox().addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent event) -> {
             event.consume();
-
             historyIcon.getText().setEffect(hoverIconEffect);
             historyIcon.getImage().setEffect(hoverIconEffect);
         });
@@ -555,8 +503,8 @@ public class CompleteHeader {
 
         historyIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
-	    System.out.println(user1.toString());
-	    System.out.println("User1 in CompleteHeader : " + user1.getPhone().getBillingDate());
+	    hoverIconEffect.setColor(Setting.getColor());
+	    theme = Setting.getColor();
             historyIcon.getText().setEffect(activeIconEffect);
             historyIcon.getImage().setEffect(activeIconEffect);
             try {
@@ -572,20 +520,27 @@ public class CompleteHeader {
         TextWithIcon settingIcon = new TextWithIcon("Setting", "Setting.png");
         settingIcon.getHbox().addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent event) -> {
             event.consume();
-
             settingIcon.getText().setEffect(hoverIconEffect);
             settingIcon.getImage().setEffect(hoverIconEffect);
         });
         settingIcon.getHbox().addEventHandler(MouseEvent.MOUSE_EXITED, (MouseEvent event) -> {
             event.consume();
             settingIcon.getText().setEffect(null);
-            historyIcon.getImage().setEffect(null);
+            settingIcon.getImage().setEffect(null);
         });
 	 settingIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
-	    user1.getLogy().clear();
-	    Log.getLogList().clear();
-	    System.out.println("Clean Log");
+	    hoverIconEffect.setColor(Setting.getColor());
+	    theme = Setting.getColor();
+	     try {
+                Setting.display();
+            } catch (Exception ex) {
+                Logger.getLogger(CompleteHeader.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            stage1.setScene(Setting.getScene1());
+            stage1.setX(stage1.getX());
+            stage1.setY(stage1.getY());
+	   
         });
 
         //Top HBox
@@ -617,7 +572,6 @@ public class CompleteHeader {
         topRightBox.getChildren().addAll(logoutIcon.active());
         logoutIcon.getHbox().addEventHandler(MouseEvent.MOUSE_ENTERED, (MouseEvent event) -> {
             event.consume();
-
             logoutIcon.getText().setEffect(hoverIconEffect);
             logoutIcon.getImage().setEffect(hoverIconEffect);
         });
@@ -628,6 +582,7 @@ public class CompleteHeader {
         });
         logoutIcon.getHbox().addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent event) -> {
             event.consume();
+	    theme = Setting.getColor();
             try {
                 AccountList.getVBox1().getChildren().clear();
                 Account.getAccountList().clear();
@@ -643,6 +598,12 @@ public class CompleteHeader {
         });
         return topRightBox;
 
+    }
+    public static String toRGBCode( Color color ) {
+	return String.format( "#%02X%02X%02X",
+	    (int)( color.getRed() * 255 ),
+	    (int)( color.getGreen() * 255 ),
+	    (int)( color.getBlue() * 255 ) );
     }
 
     public void setAccountListScene(Scene scene) {
@@ -665,9 +626,14 @@ public class CompleteHeader {
         return stage1;
     }
 
-    public static void setMoney(double money) {
-        balance = money;
-    }
+	public static Color getTheme() {
+		return theme;
+	}
+
+	public static void setTheme(Color theme) {
+		CompleteHeader.theme = theme;
+	}
+
 
 
 }

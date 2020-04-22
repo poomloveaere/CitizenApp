@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.WithDraw;
 
 import citizenapp.Module.CompleteHeader;
@@ -21,10 +17,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
 public class FailWithDraw {
 	public static void display(String firstName, String accNum, double totalAmount) throws FileNotFoundException {
 
@@ -37,7 +29,7 @@ public class FailWithDraw {
 		
 		VBox vbox = new VBox(20);
 
-////		//Correct Image
+		//Correct Image
 		Image incorrectPic = new Image(new FileInputStream("src/citizenapp/img/incorrect.png"));
 		ImageView incorrectImg = new ImageView();
 		incorrectImg.setImage(incorrectPic);
@@ -51,10 +43,7 @@ public class FailWithDraw {
 		t3.setFont(Font.font("FreesiaUPC", 22));
 		t5.setFont(Font.font("FreesiaUPC", 22));
 		
-//		Button finishbtn = new Button("Finish");
-		
 		VBox.setMargin(t1, new Insets(-20,0,0,0));
-		
 		vbox.setAlignment(Pos.CENTER);
 		vbox.getChildren().addAll(incorrectImg, t1,t2,t3,t5);
 

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp;
 
 import citizenapp.Module.CompleteHeader;
@@ -33,7 +29,7 @@ import javafx.scene.text.TextAlignment;
 
 public class AccountList implements EventHandler<ActionEvent>{
 	
-	private AnchorPane mainPane = new AnchorPane();	
+	private final AnchorPane mainPane = new AnchorPane();	
 
 	public AnchorPane getMainPane() {
 		return mainPane;
@@ -44,9 +40,9 @@ public class AccountList implements EventHandler<ActionEvent>{
 	private static VBox vbox1;
 	private static String phoneNumber1;
 	private final ScrollPane scrollPane = new ScrollPane();
-	private static ArrayList<Account> accountList = new ArrayList<>();
+	private static final ArrayList<Account> accountList = new ArrayList<>();
 	private Scene scene;
-	private UserData user;
+	private final UserData user;
 	
 
 	private final String SCROLL = "scroll-pane";
@@ -63,9 +59,15 @@ public class AccountList implements EventHandler<ActionEvent>{
 	}
 
 	public void start() throws Exception {
+		mainPane.setPrefWidth(800);
+		mainPane.setPrefHeight(600);
 		
 		VBox vbox = new VBox(20);
 		vbox1= vbox;
+		vbox.setMinWidth(Control.USE_PREF_SIZE);
+		vbox.setMaxWidth(Control.USE_PREF_SIZE);
+		vbox.setPrefWidth(380);
+		vbox.setStyle("-fx-background-color: transparent;");
 		//Set-Up
 		scrollPane.setLayoutX(145);
 		scrollPane.setLayoutY(230);
@@ -92,17 +94,15 @@ public class AccountList implements EventHandler<ActionEvent>{
 		nameHBox.setLayoutY(40);
 		nameHBox.getChildren().add(fullNameLabel);
 		nameHBox.setAlignment(Pos.CENTER_RIGHT);
-		
-		mainPane.setPrefWidth(800);
-		mainPane.setPrefHeight(600);
 
+		//Prepared for Username
 		Text accountName = new Text("Account Name: "); 
 		accountName.setFont(Font.font("Neucha", 28));
 		accountName.setFill(Color.WHITE);
 		accountName.setLayoutX(190);
 		accountName.setLayoutY(185);
-		
 		accountName.setTextAlignment(TextAlignment.CENTER);
+		//Username
 		Text accountFullName = new Text(this.fullName);
 		accountFullName.setFont(Font.font("Neucha", 28));
 		accountFullName.setFill(Color.WHITE);
@@ -111,22 +111,17 @@ public class AccountList implements EventHandler<ActionEvent>{
 		accountFullName.setTextAlignment(TextAlignment.CENTER);
 		accountFullName.setWrappingWidth(350);
 		
-		
-		//เชื่อมข้อมูลจาก Database ตรงนี้
-		
+		//Connect to Database
 		for (int i = 0;i < user.getAccountList().size(); i++) {	
 			Account account = new Account(user.getAccountList().get(i).getName(), "", String.valueOf(user.getAccountList().get(i).getAccountNumber()), user.getAccountList().get(i).getBalance(), user.getAccountList().get(i).getPassword(), i);
 			if (CompleteHeader.getUser1().getAccountList().size() == Account.getAccountList().size())
 				accountList.add(account);	
 		}
-		
-		vbox.setMinWidth(Control.USE_PREF_SIZE);
-		vbox.setMaxWidth(Control.USE_PREF_SIZE);
-		vbox.setPrefWidth(380);
-		vbox.setStyle("-fx-background-color: transparent;");
+
 		for (int i = 0; i < Account.getAccountBox().size(); i++) {
 			vbox.getChildren().add(Account.getAccountBox().get(i));
 		}	
+		
 		scrollPane.setContent(vbox);
 		scrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
 		scrollPane.setPrefViewportHeight(400);
@@ -152,16 +147,7 @@ public class AccountList implements EventHandler<ActionEvent>{
 		secondBg.setEffect(new DropShadow(20, Color.GRAY));
 		secondBg.setOpacity(0.8);
 		
-		mainPane.getChildren().addAll(mainBg, secondBg, CompleteHeader.getLogo(), CompleteHeader.getNavbar(), CompleteHeader.getTopRight(), nameHBox, accountName, accountFullName, scrollPane);
-		
-		/**
-		 * MainBG √
-		 * SecondBG √
-		 * getLogo √
-		 * Navbar √
-		 * getTopRight √
-		 */
-		
+		mainPane.getChildren().addAll(mainBg, secondBg, CompleteHeader.getLogo(), CompleteHeader.getNavbar(), CompleteHeader.getTopRight(), nameHBox, accountName, accountFullName, scrollPane);	
 		
 		Scene scene = new Scene(mainPane, 800, 600);
 		this.scene = scene;

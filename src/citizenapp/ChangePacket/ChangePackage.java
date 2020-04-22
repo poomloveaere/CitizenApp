@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.ChangePacket;
 
 import citizenapp.Module.CompleteHeader;
@@ -27,33 +23,27 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
 public class ChangePackage {
-	
-	
 	private static final String IDLE = "-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent; -fx-border-color: #000";
 	private static final String HOVER = "-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: linear-gradient(from 35% 35% to 100% 100%, #A49295, #d9c59e); -fx-border-color: #6e6d6b; -fx-effect: dropshadow(three-pass-box, white, 5, 0, 0 ,0);\n" +
 "    -fx-fill: whitesmoke;";
 	
 	//Package1 Info
-	private static String price1 = "399";
-	private static String gb1 = "5";
-	private static String min1 = "150";
+	private final static String price1 = "399";
+	private final static String gb1 = "5";
+	private final static String min1 = "150";
 	//Package2 Info
-	private static String price2 = "499"; 
-	private static String gb2 = "10";
-	private static String min2 = "200";
+	private final static String price2 = "499"; 
+	private final static String gb2 = "10";
+	private final static String min2 = "200";
 	//Package3 Info
-	private static String price3 = "599"; 
-	private static String gb3 = "16";
-	private static String min3 = "300";
+	private final static String price3 = "599"; 
+	private final static String gb3 = "16";
+	private final static String min3 = "300";
 	//Package4 Info
-	private static String price4 = "699"; 
-	private static String gb4 = "20";
-	private static String min4 = "300";
+	private final static String price4 = "699"; 
+	private final static String gb4 = "20";
+	private final static String min4 = "300";
 	
 	public static void display() throws FileNotFoundException {
 		
@@ -220,7 +210,5 @@ public class ChangePackage {
 		stage.show();
 		
 	}
-	
-	
 	
 }

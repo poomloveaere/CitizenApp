@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.Module;
 
 import java.io.FileInputStream;
@@ -14,10 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author arthris
- */
 public class TextWithIcon {
 	private final String string;
 	private final String path;

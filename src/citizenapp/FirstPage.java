@@ -5,7 +5,6 @@ package citizenapp;
 import citizenapp.Module.LoginForm;
 
 import java.io.FileInputStream;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -15,9 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import database.UserData;
-import database.UserkeyList;
-import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,18 +23,12 @@ public class FirstPage implements EventHandler<ActionEvent>{
 	
 	private static Stage window;
 	private static final String BUTTON = "button";
-	private String css = this.getClass().getResource("style/FirstPage.css").toExternalForm();
-	private String DB_PATH = "src/citizenapp/DatabaseList/";
+	private final String css = this.getClass().getResource("style/FirstPage.css").toExternalForm();
+	private final String DB_PATH = "src/citizenapp/DatabaseList/";
 	private static final String PATH = "src/userdata/keylist"; 
 	
-	public FirstPage() {
-		
-//		UserkeyList ukl = new UserkeyList(PATH);
-//		UserData us1 = ukl.Login("lol", "1234");
-		
-	}
+	public FirstPage() {}
 
-	
 	public void start(Stage stage) throws Exception {
 		window = stage;
 		window.setResizable(false);
@@ -81,7 +71,7 @@ public class FirstPage implements EventHandler<ActionEvent>{
 
 	@Override
 	public void handle(ActionEvent event) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	public static void close() {
