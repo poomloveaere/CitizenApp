@@ -107,8 +107,8 @@ public class LoginForm {
 		completeLoginBox.setLayoutX(150);
 		completeLoginBox.setLayoutY(130);
 		
-		inputId.setText("1100201563564");
-		inputPw.setText("123");
+//		inputId.setText("1100201563564");
+//		inputPw.setText("123");
 		inputPw.setOnKeyPressed((KeyEvent key) -> {
 			if (key.getCode().equals(KeyCode.ENTER))
 			{

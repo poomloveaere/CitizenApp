@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package citizenapp.Transfer;
 
 import citizenapp.AccountCheck;
 import citizenapp.Module.CompleteHeader;
 import citizenapp.Module.LoginForm;
-import citizenapp.WithDraw.VerifyWithDraw;
 import database.UserData;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -31,10 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author arthris
- */
+
 public class TransferPopUp {
 	
 	private final static String css = TransferPopUp.class.getResource("../style/darkbutton.css").toExternalForm();
@@ -48,7 +39,7 @@ public class TransferPopUp {
 		VBox vbox = new VBox(20);
 		account.setFont(Font.font("Ink Free", 33));
 		String moneyS = String.format("%.2f", money);
-		Text accountNo = new Text("Account No. : " + accNum);
+		Text accountNo = new Text("Account No." + accNum);
 		Text balanceText = new Text("Balance : " + moneyS + " baht");
 		Text amount = new Text("Amount : ");
 		Text to = new Text("To Account No. : ");
@@ -95,19 +86,14 @@ public class TransferPopUp {
 							if (accNumTransfer.equals(tempUser.getAccountList().get(j).getAccountNumber())) {
 								
 								if (CompleteHeader.getUser1().getId().equals(tempUser.getId())) {
-//									System.out.println("Same ID Transfer");
 									SuccessTransfer.display(number, firstName, lastName, accNum, accNumTransfer, money, amountD);									     CompleteHeader.getUser1().getAccountList().get(j).setBalance(CompleteHeader.getUser1().getAccountList().get(j).getBalance() + amountD);
 									CompleteHeader.getUser1().WriteData(CompleteHeader.getDATAPATH() + tempUser.getId());
 									
 								} else {
-//									System.out.println("Different ID Transfer");
 									SuccessTransfer.display(number, firstName, lastName, accNum, accNumTransfer, money, amountD);	
-//									System.out.println(LoginForm.getUserkey().key.get(i).ReadData().getAccountList().get(j).getBalance());
 									tempUser.getAccountList().get(j).setBalance(tempUser.getAccountList().get(j).getBalance() + amountD);
-//									System.out.println("From Temp: " + tempUser.getAccountList().get(j).getBalance());
 
 									tempUser.WriteData(CompleteHeader.getDATAPATH() + tempUser.getId());
-//									System.out.println(LoginForm.getUserkey().key.get(i).ReadData().getAccountList().get(j).getBalance());
 								}
 								
 								i = LoginForm.getUserkey().key.size() + 1;
@@ -134,7 +120,7 @@ public class TransferPopUp {
 			stage.close();
 		});
 		hbox2.getChildren().addAll(confirmBtn, cancelBtn);
-		VBox.setMargin(account, new Insets(0,0,0,0));
+		VBox.setMargin(account, new Insets(5,0,0,0));
 		vbox.getChildren().addAll(account, accountNo, balanceText, hbox1, hbox, hbox2);
 		vbox.setAlignment(Pos.CENTER);
 		vbox.getStylesheets().add(css);

@@ -98,7 +98,6 @@ public class SuccessWithDraw {
 		vbox.getChildren().addAll(correctImg, t1,t2,t3,t4,t5);
 		
 		
-		
 		Image img1 = new Image(new FileInputStream(CompleteHeader.getPATH_TO_BG3()));
 		ImageView mainBg = new ImageView();
 		mainBg.setImage(img1);

@@ -80,10 +80,10 @@ public class AccountPage extends Application implements EventHandler<ActionEvent
         nameHBox.setAlignment(Pos.CENTER_RIGHT);
 
         //Account Holder Name
-        Text accountName = new Text("Account Name: " + this.fullName);
+        Text accountName = new Text("Account Name: " + CompleteHeader.getFullName());
         accountName.setFont(Font.font("Neucha", 18));
         accountName.setFill(Color.WHITE);
-        accountName.setLayoutX(180);
+        accountName.setLayoutX(200);
         accountName.setLayoutY(150);
         accountName.setWrappingWidth(400);
         accountName.setTextAlignment(TextAlignment.CENTER);
@@ -106,7 +106,7 @@ public class AccountPage extends Application implements EventHandler<ActionEvent
         this.withDrawBtn.setStyle(OREO);
         this.withDrawBtn.setFont(Font.font("Open Sans", 18));
         this.withDrawBtn.setTextFill(Color.web("#1F2322"));
-        this.withDrawBtn.setLayoutX(330);
+        this.withDrawBtn.setLayoutX(350);
         this.withDrawBtn.setLayoutY(350);
         this.withDrawBtn.setPadding(new Insets(10, 15, 10, 15));
         this.withDrawBtn.setOnAction(e -> {
@@ -122,7 +122,7 @@ public class AccountPage extends Application implements EventHandler<ActionEvent
         this.transferBtn.setStyle(OREO);
         this.transferBtn.setFont(Font.font("Open Sans", 18));
         this.transferBtn.setTextFill(Color.web("#1F2322"));
-        this.transferBtn.setLayoutX(335);
+        this.transferBtn.setLayoutX(355);
         this.transferBtn.setLayoutY(420);
         this.transferBtn.setPadding(new Insets(10, 15, 10, 15));
         this.transferBtn.setOnAction(e -> {
@@ -137,7 +137,7 @@ public class AccountPage extends Application implements EventHandler<ActionEvent
         //MainPane
         AnchorPane mainPane = new AnchorPane();
         RoundButton balanceBtn = new RoundButton(this.money);
-        balanceBtn.getBtn().setLayoutX(300);
+        balanceBtn.getBtn().setLayoutX(320);
         balanceBtn.getBtn().setLayoutY(180);
 
         //Primary Background

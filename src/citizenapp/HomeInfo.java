@@ -74,6 +74,7 @@ public class HomeInfo implements EventHandler<ActionEvent>{
 		pic.setFitHeight(150);
 		pic.setLayoutX(530);
 		pic.setLayoutY(150);
+		
 		//Prepared
 		String fullName = this.firstName + " " + this.surName;
 		

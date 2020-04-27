@@ -81,7 +81,7 @@ public class ConfirmPayBill {
 				int i;
 				for (i = 0; i < Account.getAccountList().size(); i++) {
 					if (accNum.equals(Account.getAccountList().get(i).getAccNum())) {
-						System.out.println("Account Found!!" + result);
+						
 						
 						if (result >= 0) {
 							if (AccountCheck.isIsOtherPhone()) {
@@ -134,28 +134,31 @@ public class ConfirmPayBill {
 									
 									if (own.getPhone().getDate().getMonth() == dateNow.getMonth()) { //Same Month
 										if (own.getPhone().getDate().getDate() - dateNow.getDate() >  7) { 
+											
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
-											System.out.println("Hello1");
+											
 											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 									}
 									} else /*Not Same Month */ {
 										if ((own.getPhone().getDate().getDate() + (own.getPhone().getDate().getMonth() * 30)) - (dateNow.getDate() + (dateNow.getMonth() * 30)) > 7)					{
+											
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
-											System.out.println("Hello2");
+											
 											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 										}
 									}
 								} else {
 									if (dateNow.getMonth() == 12 && own.getPhone().getDate().getMonth() == 1) {
 										if ((own.getPhone().getDate().getDate() + 365) - (dateNow.getDate() + 334) > 7) {
+											
 											PayAlready.setMe(true);
 											PayAlready.display();
 										} else {
-											System.out.println("Hello3");
+											
 											SuccessPayphone.display(number, price, otherPhone.getOtherPhoneNum());
 										}
 									} else {

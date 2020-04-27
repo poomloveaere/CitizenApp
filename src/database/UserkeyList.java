@@ -216,7 +216,7 @@ public class UserkeyList implements Serializable {
         
         Date birthDate = new Date();
         //System.out.println(birthDate.getYear());
-        while (dateOfBirth > 31 || mounthOfBirth > 12 || yearOfBirth > birthDate.getYear() + 1900 - 7) {
+        while (dateOfBirth > 31 || mounthOfBirth > 12 || yearOfBirth > 2013) {
             for(boolean isLoop = true;isLoop;){
                 try {
                     System.out.println("pls,reenter dateOfBirth");
@@ -242,11 +242,19 @@ public class UserkeyList implements Serializable {
         address = scanner.nextLine();
         System.out.println("Enter phoneNumber");
         String phoneNumber = scanner.nextLine();
-        while (!phoneNumber.matches("[0-9]+") || phoneNumber.length() != 10) {
-            System.out.println("phonenumber must contain only number and have a lenght of 10 :");
-            phoneNumber = scanner.nextLine();
-        }
+        for(int j=0;j<key.size()-1;j++){
+            while (!phoneNumber.matches("[0-9]+") || phoneNumber.length() != 10) {
+                System.out.println("phonenumber must contain only number and have a lenght of 10 :");
+                phoneNumber = scanner.nextLine();
 
+            }
+            //System.out.println("Check i at"+j);
+            if(key.get(j).ReadData().phone.getPhoneNumber().equals(phoneNumber)){
+                System.out.println("This phone number is being used,pls enter new phone number");
+                phoneNumber = scanner.nextLine();
+                j = -1;
+            }
+        }
         Date isDate = new Date();
         Date expDate = new Date();
         expDate.setYear(isDate.getYear() + 7);
@@ -367,7 +375,7 @@ public class UserkeyList implements Serializable {
                             for (int i = 0; i < key.size(); i++) {
                                 System.out.println("User [" + (i + 1) + "] " + key.get(i).getId());
                             }
-                            System.out.print("\nChoose user [UserNumber] or [0]to go back : ");
+                            //System.out.print("\nChoose user [UserNumber] or [0]to go back : ");
 
                             for(boolean isLoop = true;isLoop;){
                                 try {
@@ -830,10 +838,13 @@ public class UserkeyList implements Serializable {
                                                 //break;
                                             }
                                         }
-                                        while (phoneInp < 0 || phoneInp > 2) {
+                                        //System.out.println(phoneInp);
+                                        while ( 0 < phoneInp && phoneInp <= 2) {
+                                            //System.out.println("inLoop");
                                             switch (phoneInp) {
                                                 case 1:
                                                     System.out.println("Enter new Phone number");
+                                                    sc.nextLine();
                                                     String newPhoneNumber = sc.nextLine();
                                                     prevState = key.get(mUser - 1).ReadData().phone.getPhoneNumber();
                                                     for (int i = 0; i < key.size(); i++) {
@@ -845,6 +856,7 @@ public class UserkeyList implements Serializable {
                                                     }
                                                     this.addLogs("User : " + (mUser - 1) + " Change phone number", prevState, newPhoneNumber);
                                                     cofigData.phone.setPhoneNumber(newPhoneNumber);
+                                                    phoneInp = 1000;
                                                     break;
                                                 case 2:
                                                     System.out.println("Test");
@@ -865,6 +877,7 @@ public class UserkeyList implements Serializable {
                                                     this.addLogs("User : " + (mUser - 1) + " Change package",
                                                             "price:" + t1 + ",internet:" + t2 + ",callingTime:" + t3,
                                                             "price:" + tmpPrice + ",internet:" + tmpInternet + ",callingTime:" + tmpCallingTime);
+                                                    phoneInp = 1000;
                                                     break;
 
                                             }

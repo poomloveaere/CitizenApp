@@ -94,7 +94,7 @@ public class SuccessChangePackage {
 				CompleteHeader.getUser1().getPhone().setCallingTime(minute);
 				CompleteHeader.getUser1().getPhone().setPrice(price);
 				CompleteHeader.getUser1().getPhone().setBillingDate(dateOne);
-				CompleteHeader.getUser1().getPhone().setDate(date1);
+				CompleteHeader.getUser1().getPhone().setDate(date);
 				CompleteHeader.getUser1().WriteData("src/database/" + CompleteHeader.getUser1().getId());
 				closeProgram();
 			} catch (Exception ex) {
@@ -127,9 +127,6 @@ public class SuccessChangePackage {
 	}
 	
 	public static void closeProgram() throws Exception {
-		PhoneInfo p2 = new PhoneInfo(CompleteHeader.getPhoneNumber(), CompleteHeader.getUser1().getPhone().getPrice(), CompleteHeader.getUser1().getPhone().getBillingDate() , CompleteHeader.getUser1().getPhone().getInternet(), CompleteHeader.getUser1().getPhone().getCallingTime());
-		p2.start();
-		CompleteHeader.getStage().setScene(PhoneInfo.getScene());
 		stage.close();
 	}
 }
